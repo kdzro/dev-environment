@@ -1,12 +1,12 @@
 # Personal dev configuration
 
-| nvim                                     | terminal                                 |
-| ---------------------------------------- | ---------------------------------------- |
-| <img src = https://prnt.sc/Mt2cmdWi_aHp> | <img src = https://prnt.sc/xQ1TQm6lR3pE> |
+| nvim                                        | terminal                                        |
+| ------------------------------------------- | ----------------------------------------------- |
+| ![nvim-image](https://prnt.sc/Mt2cmdWi_aHp) | ![terminal-image](https://prnt.sc/xQ1TQm6lR3pE) |
 
 <div align="center">
 
-[Static Bagde](https://img.shields.io/badge/Neovim-kdzro-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)
+![Static Bagde](https://img.shields.io/badge/Neovim-kdzro-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)
 
 </div>
 
