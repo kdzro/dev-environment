@@ -85,7 +85,7 @@ To use the configuration without problems, you should have these installed in yo
 - [debugpy](https://github.com/microsoft/debugpy)
 - [pytest](https://github.com/pytest-dev/pytest)
 
-Regardin neovim, i have the following plugins installed:
+Regarding neovim, i have the following plugins installed:
 
 ### **Plugins**
 
