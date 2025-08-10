@@ -1,8 +1,10 @@
-# Personal dev configuration
+<h1 align="center">
+    Personal dev configuration
+</h1>
 
-| nvim                                        | terminal                                        |
-| ------------------------------------------- | ----------------------------------------------- |
-| ![nvim-image](https://prnt.sc/Mt2cmdWi_aHp) | ![terminal-image](https://prnt.sc/xQ1TQm6lR3pE) |
+| nvim                                                                                                            | terminal                                                                                                        |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| <center><img src = "https://github.com/user-attachments/assets/928fce44-c7f0-41de-bbd4-919c678c7fa4"/></center> | <center><img src = "https://github.com/user-attachments/assets/a79f86ae-1d16-4ef7-a8b2-0435b8e82895"/></center> |
 
 <div align="center">
 
