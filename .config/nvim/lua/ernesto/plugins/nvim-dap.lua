@@ -12,75 +12,45 @@ return {
 			local dapui = require("dapui")
 			local dap_python = require("dap-python")
 
-			require("dapui").setup({})
-			require("nvim-dap-virtual-text").setup({
-				commented = true, -- Show virtual text alongside comment
-			})
+			dapui.setup({})
+			require("nvim-dap-virtual-text").setup({ commented = true })
 
-			dap_python.setup("python3")
+			local function py_bin()
+				local venv = os.getenv("VIRTUAL_ENV")
+				if venv and #venv > 0 then
+					return venv .. "/bin/python"
+				end
+				return "python3"
+			end
+			dap_python.setup(py_bin())
 
-			vim.fn.sign_define("DapBreakpoint", {
-				text = "",
-				texthl = "DiagnosticSignError",
-				linehl = "",
-				numhl = "",
-			})
+			vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError" })
+			vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticSignError" })
+			vim.fn.sign_define(
+				"DapStopped",
+				{ text = "", texthl = "DiagnosticSignWarn", linehl = "Visual", numhl = "DiagnosticSignWarn" }
+			)
 
-			vim.fn.sign_define("DapBreakpointRejected", {
-				text = "", -- or "❌"
-				texthl = "DiagnosticSignError",
-				linehl = "",
-				numhl = "",
-			})
-
-			vim.fn.sign_define("DapStopped", {
-				text = "", -- or "→"
-				texthl = "DiagnosticSignWarn",
-				linehl = "Visual",
-				numhl = "DiagnosticSignWarn",
-			})
-
-			-- Automatically open/close DAP UI
 			dap.listeners.after.event_initialized["dapui_config"] = function()
 				dapui.open()
 			end
+			dap.listeners.before.event_terminated["dapui_config"] = function()
+				dapui.close()
+			end
+			dap.listeners.before.event_exited["dapui_config"] = function()
+				dapui.close()
+			end
 
-			local opts = { noremap = true, silent = true }
-
-			-- Toggle breakpoint
-			vim.keymap.set("n", "<leader>db", function()
-				dap.toggle_breakpoint()
-			end, { desc = "Toggle breakpoint" }, opts)
-
-			-- Continue / Start
-			vim.keymap.set("n", "<leader>dc", function()
-				dap.continue()
-			end, { desc = "Continue/Start debugging" }, opts)
-
-			-- Step Over
-			vim.keymap.set("n", "<leader>do", function()
-				dap.step_over()
-			end, { desc = "Step Over" }, opts)
-
-			-- Step Into
-			vim.keymap.set("n", "<leader>di", function()
-				dap.step_into()
-			end, { desc = "Step Into" }, opts)
-
-			-- Step Out
-			vim.keymap.set("n", "<leader>dO", function()
-				dap.step_out()
-			end, { desc = "Step Out" }, opts)
-
-			-- Keymap to terminate debugging
-			vim.keymap.set("n", "<leader>dq", function()
-				require("dap").terminate()
-			end, { desc = "Terminate debugging" }, opts)
-
-			-- Toggle DAP UI
-			vim.keymap.set("n", "<leader>du", function()
-				dapui.toggle()
-			end, { desc = "Toggle DAP UI" }, opts)
+			local function map(lhs, rhs, desc)
+				vim.keymap.set("n", lhs, rhs, { noremap = true, silent = true, desc = desc })
+			end
+			map("<leader>db", dap.toggle_breakpoint, "DAP: Toggle breakpoint")
+			map("<leader>dc", dap.continue, "DAP: Continue/Start")
+			map("<leader>do", dap.step_over, "DAP: Step Over")
+			map("<leader>di", dap.step_into, "DAP: Step Into")
+			map("<leader>dO", dap.step_out, "DAP: Step Out")
+			map("<leader>dq", dap.terminate, "DAP: Terminate")
+			map("<leader>du", dapui.toggle, "DAP: Toggle UI")
 		end,
 	},
 }

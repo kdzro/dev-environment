@@ -7,7 +7,8 @@ return {
 		"nvim-neotest/neotest-python",
 	},
 	config = function()
-		require("neotest").setup({
+		local neotest = require("neotest")
+		neotest.setup({
 			adapters = {
 				require("neotest-python")({
 					dap = { justMyCode = false },
@@ -15,47 +16,37 @@ return {
 					runner = "pytest",
 				}),
 			},
-			keymap = {
-				vim.keymap.set("n", "<leader>nr", function()
-					require("neotest").run.run()
-				end, { desc = "Run nearest test" }),
-
-				vim.keymap.set("n", "<leader>nc", function()
-					require("neotest").run.run(vim.fn.expand("%"))
-				end, { desc = "Run current file" }),
-
-				vim.keymap.set("n", "<leader>nd", function()
-					require("neotest").run.run({ strategy = "dap" })
-				end, { desc = "Debug the nearest test" }),
-
-				vim.keymap.set("n", "<leader>nD", function()
-					require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" })
-				end, { desc = "Debug the current file" }),
-
-				vim.keymap.set("n", "<leader>ns", function()
-					require("neotest").run.stop()
-				end, { desc = "Stop nearest test" }),
-
-				vim.keymap.set("n", "<leader>na", function()
-					require("neotest").run.attach()
-				end, { desc = "Attach to the nearest test" }),
-
-				vim.keymap.set("n", "<leader>nw", function()
-					require("neotest").watch.toggle(vim.fn.expand("%"))
-				end, { desc = "Watch files related to tests for changes and re-runs tests" }),
-
-				vim.keymap.set("n", "<leader>no", function()
-					require("neotest").output_panel.toggle()
-				end, { desc = "Toggle output panel" }),
-
-				vim.keymap.set("n", "<leader>nC", function()
-					require("neotest").output_panel.clear()
-				end, { desc = "Clear output panel" }),
-
-				vim.keymap.set("n", "<leader>nS", function()
-					require("neotest").summary.toggle()
-				end, { desc = "Toggle summary window" }),
-			},
 		})
+
+		vim.keymap.set("n", "<leader>nr", function()
+			neotest.run.run()
+		end, { desc = "Neotest: Run nearest" })
+		vim.keymap.set("n", "<leader>nc", function()
+			neotest.run.run(vim.fn.expand("%"))
+		end, { desc = "Neotest: Run file" })
+		vim.keymap.set("n", "<leader>nd", function()
+			neotest.run.run({ strategy = "dap" })
+		end, { desc = "Neotest: Debug nearest" })
+		vim.keymap.set("n", "<leader>nD", function()
+			neotest.run.run({ vim.fn.expand("%"), strategy = "dap" })
+		end, { desc = "Neotest: Debug file" })
+		vim.keymap.set("n", "<leader>ns", function()
+			neotest.run.stop()
+		end, { desc = "Neotest: Stop" })
+		vim.keymap.set("n", "<leader>na", function()
+			neotest.run.attach()
+		end, { desc = "Neotest: Attach" })
+		vim.keymap.set("n", "<leader>nw", function()
+			neotest.watch.toggle(vim.fn.expand("%"))
+		end, { desc = "Neotest: Watch file" })
+		vim.keymap.set("n", "<leader>no", function()
+			neotest.output_panel.toggle()
+		end, { desc = "Neotest: Output panel" })
+		vim.keymap.set("n", "<leader>nC", function()
+			neotest.output_panel.clear()
+		end, { desc = "Neotest: Clear output" })
+		vim.keymap.set("n", "<leader>nS", function()
+			neotest.summary.toggle()
+		end, { desc = "Neotest: Toggle Summary" })
 	end,
 }

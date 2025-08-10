@@ -6,12 +6,10 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				css = { "prettier" },
-				html = { "prettier" },
+				python = { "isort", "black" },
+				lua = { "stylua" },
 				json = { "prettier" },
 				markdown = { "prettier" },
-				lua = { "stylua" },
-				python = { "isort", "black" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
@@ -21,11 +19,7 @@ return {
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-			conform.format({
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			})
-		end, { desc = "Format file or range (in visual mode)" })
+			conform.format({ lsp_fallback = true, async = false, timeout_ms = 1000 })
+		end, { desc = "Conform: Format file or range" })
 	end,
 }
