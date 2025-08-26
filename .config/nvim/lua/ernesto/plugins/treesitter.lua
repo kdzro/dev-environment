@@ -10,6 +10,9 @@ return {
 			indent = { enable = true },
 			ensure_installed = {
 				"python",
+				"java",
+				"cpp",
+				"c_sharp",
 				"lua",
 				"json",
 				"markdown",

@@ -3,16 +3,32 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
+		{
+			"folke/lazydev.nvim",
+			opts = {
+				library = {
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			},
+		},
+		{
+			"SmiteshP/nvim-navbuddy",
+			dependencies = {
+				"SmiteshP/nvim-navic",
+				"MunifTanjim/nui.nvim",
+			},
+			opts = {
+				lsp = {
+					auto_attach = true,
+				},
+			},
+		},
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		-- diag visuais limpos
 		vim.diagnostic.config({
 			virtual_text = true,
 			severity_sort = true,
@@ -73,29 +89,82 @@ return {
 			end,
 		})
 
-		lspconfig.pyright.setup({
+		vim.lsp.enable("pyright")
+		vim.lsp.enable("clangd")
+		vim.lsp.enable("omnisharp")
+		vim.lsp.enable("lua_ls")
+
+		vim.lsp.config("pyright", {
 			capabilities = capabilities,
 			settings = {
 				python = {
-					analysis = {
-						typeCheckingMode = "basic",
-						autoImportCompletions = true,
-						diagnosticMode = "openFilesOnly",
+					autoSearchPaths = true,
+					diagnosticMode = "openFilesOnly",
+					useLibraryCodeForTypes = true,
+				},
+			},
+		})
+
+		vim.lsp.config("clangd", {
+			capabilities = capabilities,
+			settings = {
+				cpp = {
+					offsetEncoding = { "utf-8", "utf-16" },
+					textDocument = {
+						completion = {
+							editsNearCursor = true,
+						},
 					},
 				},
 			},
 		})
 
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("omnisharp", {
 			capabilities = capabilities,
 			settings = {
-				Lua = {
-					diagnostics = { globals = { "vim" } },
-					completion = { callSnippet = "Replace" },
+				FormattingOptions = {
+					EnableEditorConfigSupport = true,
+				},
+				MsBuild = {},
+				RenameOptions = {},
+				RoslynExtensionsOptions = {},
+				Sdk = {
+					IncludePrereleases = true,
+				},
+			},
+		})
+
+		vim.lsp.config("lua_ls", {
+			on_init = function(client)
+				if client.workspace_folders then
+					local path = client.workspace_folders[1].name
+					if
+						path ~= vim.fn.stdpath("config")
+						and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+					then
+						return
+					end
+				end
+
+				client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+					runtime = {
+						version = "LuaJIT",
+						path = {
+							"lua/?.lua",
+							"lua/?/init.lua",
+						},
+					},
 					workspace = {
 						checkThirdParty = false,
+						library = {
+							vim.env.VIMRUNTIME,
+							"${3rd}/luv/library",
+						},
 					},
-				},
+				})
+			end,
+			settings = {
+				Lua = {},
 			},
 		})
 	end,

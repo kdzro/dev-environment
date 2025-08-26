@@ -5,9 +5,12 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-neotest/neotest-python",
+		"rcasia/neotest-java",
+		"alfaix/neotest-gtest",
 	},
 	config = function()
 		local neotest = require("neotest")
+
 		neotest.setup({
 			adapters = {
 				require("neotest-python")({
@@ -15,6 +18,11 @@ return {
 					args = { "--log-level", "DEBUG" },
 					runner = "pytest",
 				}),
+				require("neotest-java")({
+					junit_jar = nil,
+					incremental_build = true,
+				}),
+				require("neotest-gtest").setup({}),
 			},
 		})
 

@@ -6,6 +6,7 @@ return {
 			"rcarriga/nvim-dap-ui",
 			"mfussenegger/nvim-dap-python",
 			"theHamsta/nvim-dap-virtual-text",
+			"jbyuki/one-small-step-for-vimkind",
 		},
 		config = function()
 			local dap = require("dap")
@@ -23,6 +24,56 @@ return {
 				return "python3"
 			end
 			dap_python.setup(py_bin())
+
+			dap.adapters.codelldb = {
+				type = "executable",
+				command = "codelldb",
+			}
+
+			dap.configurations.cpp = {
+				{
+					name = "Launch file",
+					type = "codelldb",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					stopOnEntry = false,
+				},
+			}
+
+			dap.adapters.coreclr = {
+				type = "executable",
+				command = "/home/kdzero/.local/share/nvim/mason/packages/netcoredbg/netcoredbg",
+				args = { "--interpreter=vscode" },
+			}
+
+			dap.configurations.cs = {
+				{
+					type = "coreclr",
+					name = "launch - netcoredbg",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/net9.0/", "file")
+					end,
+				},
+			}
+
+			dap.adapters.nlua = function(callback, config)
+				callback({
+					type = "server",
+					host = config.host or "127.0.0.1",
+					port = config.port or 8086,
+				})
+			end
+
+			dap.configurations.lua = {
+				{
+					type = "nlua",
+					request = "attach",
+					name = "Attach to running Neovim instance",
+				},
+			}
 
 			vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError" })
 			vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticSignError" })
@@ -51,6 +102,9 @@ return {
 			map("<leader>dO", dap.step_out, "DAP: Step Out")
 			map("<leader>dq", dap.terminate, "DAP: Terminate")
 			map("<leader>du", dapui.toggle, "DAP: Toggle UI")
+			map("<leader>dl", function()
+				require("osv").launch({ port = 8086 })
+			end, "DAP: Start Lua debug server")
 		end,
 	},
 }
