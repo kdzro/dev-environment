@@ -68,7 +68,7 @@ For tmux, i'm using theses plugins:
 ### **Relevant files:**
 
 - [.tmux.conf](https://github.com/kdzro/dev-environment/blob/main/.tmux.conf)
-- [.gitmux.conf](https://github.com/kdzro/dev-environment/blob/main/.gitmux.conf))
+- [.gitmux.conf](https://github.com/kdzro/dev-environment/blob/main/.gitmux.conf)
 
 ## Neovim setup
 
