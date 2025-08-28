@@ -22,6 +22,9 @@ return {
 					auto_attach = true,
 				},
 			},
+			keys = {
+				vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { desc = "NavBuddy: Toggle NavBuddy" }),
+			},
 		},
 	},
 	config = function()
@@ -30,7 +33,10 @@ return {
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		vim.diagnostic.config({
-			virtual_text = true,
+			virtual_text = {
+				source = true,
+				prefix = " ●",
+			},
 			severity_sort = true,
 			signs = {
 				text = {
