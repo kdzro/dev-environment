@@ -250,6 +250,10 @@ I'm using **lazy.nvim** as my plugin manager.
 
 - [img-clip.nvim](https://github.com/hakonharnes/img-clip.nvim)
 
+**Focus plugins:**
+
+- [twilight.nvim](https://github.com/folke/twilight.nvim)
+
 ## My entire setup is geared towards python, java, c++ and c# development, you can change the entire configuration according to your needs.
 
 ### **Relevant files:**
