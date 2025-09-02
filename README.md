@@ -258,7 +258,6 @@ I'm using **lazy.nvim** as my plugin manager.
 
 - [smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)
 - [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)
-- [scrollbar.nvim](https://github.com/wsdjeg/scrollbar.nvim)
 
 ## My entire setup is geared towards python, java, c++ and c# development, you can change the entire configuration according to your needs.
 
