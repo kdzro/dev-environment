@@ -254,7 +254,7 @@ I'm using **lazy.nvim** as my plugin manager.
 
 - [twilight.nvim](https://github.com/folke/twilight.nvim)
 
-**Cursor, scroll and scrollbar:**
+**Cursor and scroll:**
 
 - [smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)
 - [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)
