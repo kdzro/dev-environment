@@ -6,7 +6,8 @@ return {
 			local jdtls = require("jdtls")
 
 			local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-			local workspace_dir = "/mnt/c/Users/ernes/OneDrive/Documentos/estudos/estudos-java/" .. project_name
+			local workspace_dir = "/mnt/c/Users/ernes/OneDrive/Documentos/estudos/estudos-udemy/estudos-java/"
+				.. project_name
 
 			local config = {
 				cmd = {
