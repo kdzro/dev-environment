@@ -5,9 +5,34 @@ return {
 		config = function()
 			local jdtls = require("jdtls")
 
+			local mason_path = vim.fn.stdpath("data") .. "/mason"
+
+			local jdtls_config_path = vim.fn.has("mac") == 1 and "/config_mac/" or "/config_linux/"
+
+			local launcher_jar =
+				vim.fn.glob(mason_path .. "/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", false, true)[1]
+
+			if launcher_jar == nil then
+				vim.notify(
+					"Não foi possível encontrar o launcher.jar do jdtls. Verifique se o jdtls está instalado via Mason.",
+					vim.log.levels.ERROR
+				)
+				return
+			end
+
 			local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-			local workspace_dir = "/mnt/c/Users/ernes/OneDrive/Documentos/estudos/estudos-udemy/estudos-java/"
-				.. project_name
+			local workspace_dir = vim.fn.stdpath("cache") .. "/jdtls-workspaces/" .. project_name
+
+			local bundles = vim.fn.glob(
+				mason_path .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
+				true,
+				true
+			)
+
+			vim.list_extend(
+				bundles,
+				vim.fn.glob(mason_path .. "/packages/java-test/extension/server/*.jar", true, true)
+			)
 
 			local config = {
 				cmd = {
@@ -26,10 +51,10 @@ return {
 					"java.base/java.lang=ALL-UNNAMED",
 
 					"-jar",
-					"/home/kdzero/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar",
+					launcher_jar,
 
 					"-configuration",
-					"/home/kdzero/.local/share/nvim/mason/packages/jdtls/config_linux/",
+					mason_path .. "/packages/jdtls" .. jdtls_config_path,
 
 					"-data",
 					workspace_dir,
@@ -37,13 +62,7 @@ return {
 				root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "pom.xml", "gradlew" }),
 				settings = { java = {} },
 				init_options = {
-					bundles = {
-						vim.fn.glob(
-							"/home/kdzero/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"
-						),
-
-						vim.fn.glob("/home/kdzero/.local/share/nvim/mason/packages/java-test/extension/server/*.jar"),
-					},
+					bundles = bundles,
 				},
 			}
 

@@ -7,8 +7,9 @@ config.initial_cols = 120
 config.initial_rows = 28
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 12
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "GruvboxDark"
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
+config.window_background_opacity = 0.8
 
 return config

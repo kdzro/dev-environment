@@ -2,6 +2,7 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
+			"williamboman/mason.nvim",
 			"nvim-neotest/nvim-nio",
 			"rcarriga/nvim-dap-ui",
 			"mfussenegger/nvim-dap-python",
@@ -44,7 +45,18 @@ return {
 
 			dap.adapters.coreclr = {
 				type = "executable",
-				command = "/home/kdzero/.local/share/nvim/mason/packages/netcoredbg/netcoredbg",
+				command = function()
+					local mason_registry = require("mason-registry")
+					local netcoredbg_pkg = mason_registry.get_package("netcoredbg")
+					if not netcoredbg_pkg:is_installed() then
+						vim.notify(
+							"Debugger netcoredbg não está instalado. Por favor, instale-o com :Mason",
+							vim.log.levels.ERROR
+						)
+						return
+					end
+					return netcoredbg_pkg:get_install_path() .. "/netcoredbg"
+				end,
 				args = { "--interpreter=vscode" },
 			}
 

@@ -4,7 +4,7 @@
 
 | nvim                                                                                                            | terminal                                                                                                        |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| <center><img src = "https://github.com/user-attachments/assets/a4026d54-fe63-4560-bdfc-e492c2cf9c09"/></center> | <center><img src = "https://github.com/user-attachments/assets/3584c996-930a-48b3-8dd6-bcc5e6e613b0"/></center> |
+| <center><img src = "https://github.com/user-attachments/assets/10d769f5-1590-40d4-9071-fc88c9337c1e"/></center> | <center><img src = "https://github.com/user-attachments/assets/9b26c281-0622-466d-a818-d1ab139e7631"/></center> |
 
 <div align="center">
 
@@ -51,24 +51,18 @@ For tmux, i'm using theses plugins:
 
 **Colorscheme:**
 
-- [catppuccin](https://github.com/catppuccin/tmux)
+- [gruvbox-tmux](https://github.com/egel/tmux-gruvbox)
 
 **Utility:**
 
+- [tmux-mode-navigator](https://github.com/MunifTanjim/tmux-mode-indicator)
 - [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
 - [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
 
-**Status bar:**
-
-- [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu)
-- [tmux-weather](https://github.com/ilya-manin/tmux-weather)
-- [gitmux](https://github.com/arl/gitmux)
-
 ### **Relevant files:**
 
 - [.tmux.conf](https://github.com/kdzro/dev-environment/blob/main/.tmux.conf)
-- [.gitmux.conf](https://github.com/kdzro/dev-environment/blob/main/.gitmux.conf)
 
 ## Neovim setup
 
@@ -110,7 +104,7 @@ I'm using **lazy.nvim** as my plugin manager.
 
 **Colorscheme:**
 
-- [catppuccin](https://github.com/catppuccin/nvim)
+- [gruvbox](https://github.com/ellisonleao/gruvbox.nvim)
 
 **Icons:**
 

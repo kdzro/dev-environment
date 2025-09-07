@@ -5,7 +5,7 @@ return {
 	},
 	opts = {},
 	cmd = "FloatermToggle",
-	mappings = {
+	keys = {
 		vim.keymap.set("n", "<leader>tm", "<cmd>FloatermToggle<CR>", { desc = "Floaterm: Toggle Floaterm" }),
 	},
 }
