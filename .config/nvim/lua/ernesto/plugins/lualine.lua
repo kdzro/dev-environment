@@ -14,7 +14,7 @@ return {
 					{
 						lazy_status.updates,
 						cond = lazy_status.has_updates,
-						color = { fg = "#babaf1" },
+						color = { fg = "#fabd2f" },
 					},
 					{ "encoding" },
 					{ "fileformat" },
