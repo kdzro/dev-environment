@@ -55,7 +55,6 @@ For tmux, i'm using theses plugins:
 
 **Utility:**
 
-- [tmux-mode-navigator](https://github.com/MunifTanjim/tmux-mode-indicator)
 - [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
 - [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
