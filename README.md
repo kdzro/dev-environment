@@ -4,7 +4,7 @@
 
 | nvim                                                                                                            | terminal                                                                                                        |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| <center><img src = "https://github.com/user-attachments/assets/10d769f5-1590-40d4-9071-fc88c9337c1e"/></center> | <center><img src = "https://github.com/user-attachments/assets/9b26c281-0622-466d-a818-d1ab139e7631"/></center> |
+| <center><img src = "https://github.com/user-attachments/assets/4778c885-215a-4e0c-b692-db32260b1a56"/></center> | <center><img src = "https://github.com/user-attachments/assets/9f388d1c-f60a-4271-a68c-f97f5f2375a2"/></center> |
 
 <div align="center">
 
@@ -51,7 +51,7 @@ For tmux, i'm using theses plugins:
 
 **Colorscheme:**
 
-- [gruvbox-tmux](https://github.com/egel/tmux-gruvbox)
+- [tokyonight-tmux](https://github.com/janoamaral/tokyo-night-tmux)
 
 **Utility:**
 
@@ -103,7 +103,7 @@ I'm using **lazy.nvim** as my plugin manager.
 
 **Colorscheme:**
 
-- [gruvbox](https://github.com/ellisonleao/gruvbox.nvim)
+- [tokyonight](https://github.com/folke/tokyonight.nvim)
 
 **Icons:**
 
