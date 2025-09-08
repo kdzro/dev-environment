@@ -16,7 +16,7 @@ require("lazy").setup({
 	{ import = "ernesto.plugins.lsp" },
 }, {
 	install = {
-		colorscheme = { "gruvbox" },
+		colorscheme = { "tokyonight" },
 	},
 	checker = {
 		enabled = true,
