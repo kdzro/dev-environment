@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		"debugloop/telescope-undo.nvim",
 		"nvim-tree/nvim-web-devicons",
 		"folke/todo-comments.nvim",
 	},
@@ -39,5 +40,6 @@ return {
 		)
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Telescope: Find todos" })
 		keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Telescope: Show all keymaps" })
+		keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Telescope: Visualize undo history" })
 	end,
 }

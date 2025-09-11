@@ -217,6 +217,7 @@ I'm using **lazy.nvim** as my plugin manager.
 
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
+- [telescope-undo.nvim](https://github.com/debugloop/telescope-undo.nvim)
 
 **Comments:**
 
@@ -250,6 +251,11 @@ I'm using **lazy.nvim** as my plugin manager.
 **Cursor:**
 
 - [smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)
+
+**Markdown:**
+
+- [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+- [live-preview.nvim](https://github.com/brianhuster/live-preview.nvim)
 
 ## My entire setup is geared towards python, java, c++ and c# development, you can change the entire configuration according to your needs.
 
