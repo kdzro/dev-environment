@@ -30,6 +30,10 @@ For zsh, you need to install these three plugins:
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting.git)
 - web-search
 
+For git tmux widget to work properly, install:
+
+- GNU BC
+
 and this zsh theme:
 
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
@@ -80,6 +84,7 @@ To use the configuration without problems, you should have these installed in yo
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [git](https://git-scm.com/)
 - [lazygit](https://github.com/jesseduffield/lazygit)
+- [lazydocker](https://github.com/jesseduffield/lazydocker)
 - [java](https://www.oracle.com/br/java/technologies/downloads/)
 - [clangd](https://github.com/clangd/clangd)
 - [dotnet](https://learn.microsoft.com/pt-br/dotnet/core/install/linux-ubuntu-install?tabs=dotnet9&pivots=os-linux-ubuntu-2404)
@@ -160,6 +165,10 @@ I'm using **lazy.nvim** as my plugin manager.
 
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)
+
+**Docker:**
+
+- [lazydocker.nvim](https://github.com/crnvl96/lazydocker.nvim)
 
 **Indentation guides:**
 
