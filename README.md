@@ -4,7 +4,7 @@
 
 | nvim                                                                                                            | terminal                                                                                                        |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| <center><img src = "https://github.com/user-attachments/assets/4778c885-215a-4e0c-b692-db32260b1a56"/></center> | <center><img src = "https://github.com/user-attachments/assets/9f388d1c-f60a-4271-a68c-f97f5f2375a2"/></center> |
+| <center><img src = "https://github.com/user-attachments/assets/c2bcab24-838c-430a-bc81-58f420188027"/></center> | <center><img src = "https://github.com/user-attachments/assets/5967e5de-b501-4e17-b2a9-bc10aa40cb4f"/></center> |
 
 <div align="center">
 
@@ -18,27 +18,34 @@
 - [zsh](https://github.com/ohmyzsh/ohmyzsh)
 - [tmux](https://github.com/tmux/tmux)
 - [neovim](https://github.com/neovim/neovim)
-- [eza](https://github.com/eza-community/eza)
 
 ## Terminal setup
 
-I'm currently using [WezTerm](https://wezterm.org/index.html) along with zsh. You can configure the terminal in [wezterm.lua](https://github.com/kdzro/dev-environment/blob/main/wezterm.lua) file.
+For the terminal, i'm currently using [WezTerm](https://wezterm.org/index.html) along with zsh. You can configure the terminal in [wezterm.lua](https://github.com/kdzro/dev-environment/blob/main/wezterm.lua) file.
 
-For zsh, you need to install these three plugins:
+Install [Ohmyzsh](https://ohmyz.sh/):
 
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting.git)
-- web-search
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 
-For git tmux widget to work properly, install:
+I'm using [powerlevel10k](https://github.com/romkatv/powerlevel10k) theme for zsh, to install it, run the following command:
 
-- GNU BC
+```bash
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+```
 
-and this zsh theme:
+For zsh plugins, i'm currently using [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) and [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting), to install them, run these:
 
-- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
 
-About the font, i'm currently using **JetBrainsMono** from Nerd Font.
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+The font that i'm using is **[JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)**
 
 ### **Relevant files:**
 
@@ -53,9 +60,17 @@ For tmux, i'm using theses plugins:
 
 - [tmux-tpm](https://github.com/tmux-plugins/tpm)
 
+To install the plugin manager, run the following command in your terminal:
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
 **Colorscheme:**
 
-- [tokyonight-tmux](https://github.com/janoamaral/tokyo-night-tmux)
+- [tmux2k](https://github.com/2KAbhishek/tmux2k)
+
+> The colorscheme is configured with Kanagawa's theme colors.
 
 **Utility:**
 
@@ -78,22 +93,18 @@ To use the configuration without problems, you should have these installed in yo
 - [python](https://www.python.org/)
 - python-venv
 - [debugpy](https://github.com/microsoft/debugpy)
-- [pytest](https://github.com/pytest-dev/pytest)
 - npm
 - unzip
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [git](https://git-scm.com/)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - [lazydocker](https://github.com/jesseduffield/lazydocker)
-- [java](https://www.oracle.com/br/java/technologies/downloads/)
-- [clangd](https://github.com/clangd/clangd)
-- [dotnet](https://learn.microsoft.com/pt-br/dotnet/core/install/linux-ubuntu-install?tabs=dotnet9&pivots=os-linux-ubuntu-2404)
 
 Regarding neovim, i have the following plugins installed:
 
 ### **Plugins**
 
-I'm using **lazy.nvim** as my plugin manager.
+**Plugin Manager:**
 
 [lazy.nvim](https://github.com/folke/lazy.nvim)
 
@@ -104,11 +115,10 @@ I'm using **lazy.nvim** as my plugin manager.
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [nui.nvim](https://github.com/MunifTanjim/nui.nvim)
 - [nvim-nio](https://github.com/nvim-neotest/nvim-nio)
-- [volt](https://github.com/nvzone/volt)
 
 **Colorscheme:**
 
-- [tokyonight](https://github.com/folke/tokyonight.nvim)
+- [kanagawa](https://github.com/rebelot/kanagawa.nvim)
 
 **Icons:**
 
@@ -118,8 +128,8 @@ I'm using **lazy.nvim** as my plugin manager.
 
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [lazydev]()
 - [mason-lspconfig.nvim](https://github.com/mason-org/mason-lspconfig.nvim)
-- [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 
 **Mason:**
 
@@ -144,6 +154,8 @@ I'm using **lazy.nvim** as my plugin manager.
 - [nvim-navbuddy](https://github.com/SmiteshP/nvim-navbuddy)
 - [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [flash.nvim](https://github.com/folke/flash.nvim)
+- [aerial.nvim](https://github.com/stevearc/aerial.nvim)
+- [overlook.nvim](https://github.com/WilliamHsieh/overlook.nvim)
 
 **Navigating between neovim and tmux:**
 
@@ -152,10 +164,6 @@ I'm using **lazy.nvim** as my plugin manager.
 **Bufferline:**
 
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-
-**Terminal manager:**
-
-- [floaterm](https://github.com/nvzone/floaterm)
 
 **Formatting:**
 
@@ -178,19 +186,13 @@ I'm using **lazy.nvim** as my plugin manager.
 
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 
-**Testing:**
-
-- [neotest](https://github.com/nvim-neotest/neotest)
-- [neotest-python](https://github.com/nvim-neotest/neotest-python)
-- [neotest-java](https://github.com/rcasia/neotest-java)
-- [neotest-gtest](https://github.com/alfaix/neotest-gtest)
-
-**Better UI and notifications:**
+**Better UI, animations and notifications:**
 
 - [dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [noice.nvim](https://github.com/folke/noice.nvim)
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+- [tiny-glimmer.nvim](https://github.com/rachartier/tiny-glimmer.nvim)
 
 **Snippets:**
 
@@ -211,7 +213,6 @@ I'm using **lazy.nvim** as my plugin manager.
 - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 - [nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python)
 - [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
-- [one-small-step-for-vimkind](https://github.com/jbyuki/one-small-step-for-vimkind)
 
 **File explorer:**
 
@@ -219,7 +220,7 @@ I'm using **lazy.nvim** as my plugin manager.
 
 **Essentials:**
 
-- [substitute.nvim](https://github.com/gbprod/substitute.nvim)
+- [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
 - [nvim-surround](https://github.com/kylechui/nvim-surround)
 
 **Fuzzy finder:**
@@ -240,10 +241,6 @@ I'm using **lazy.nvim** as my plugin manager.
 **Trouble:**
 
 - [trouble.nvim](https://github.com/folke/trouble.nvim)
-
-**Maximize neovim window/split:**
-
-- [vim-maximizer](https://github.com/szw/vim-maximizer)
 
 **Keymap suggestions:**
 
@@ -266,10 +263,10 @@ I'm using **lazy.nvim** as my plugin manager.
 - [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 - [live-preview.nvim](https://github.com/brianhuster/live-preview.nvim)
 
-## My entire setup is geared towards python, java, c++ and c# development, you can change the entire configuration according to your needs.
-
 ### **Relevant files:**
 
 Here is my neovim config folder:
 
 - [.config](https://github.com/kdzro/dev-environment/tree/main/.config)
+
+## My entire setup is geared towards python development, you can change the entire configuration according to your needs.

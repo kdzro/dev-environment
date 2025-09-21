@@ -7,7 +7,6 @@ return {
 			"rcarriga/nvim-dap-ui",
 			"mfussenegger/nvim-dap-python",
 			"theHamsta/nvim-dap-virtual-text",
-			"jbyuki/one-small-step-for-vimkind",
 		},
 		config = function()
 			local dap = require("dap")
@@ -25,67 +24,6 @@ return {
 				return "python3"
 			end
 			dap_python.setup(py_bin())
-
-			dap.adapters.codelldb = {
-				type = "executable",
-				command = "codelldb",
-			}
-
-			dap.configurations.cpp = {
-				{
-					name = "Launch file",
-					type = "codelldb",
-					request = "launch",
-					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-					end,
-					stopOnEntry = false,
-				},
-			}
-
-			dap.adapters.coreclr = {
-				type = "executable",
-				command = function()
-					local mason_registry = require("mason-registry")
-					local netcoredbg_pkg = mason_registry.get_package("netcoredbg")
-					if not netcoredbg_pkg:is_installed() then
-						vim.notify(
-							"Debugger netcoredbg não está instalado. Por favor, instale-o com :Mason",
-							vim.log.levels.ERROR
-						)
-						return
-					end
-					return netcoredbg_pkg:get_install_path() .. "/netcoredbg"
-				end,
-				args = { "--interpreter=vscode" },
-			}
-
-			dap.configurations.cs = {
-				{
-					type = "coreclr",
-					name = "launch - netcoredbg",
-					request = "launch",
-					program = function()
-						return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/net9.0/", "file")
-					end,
-				},
-			}
-
-			dap.adapters.nlua = function(callback, config)
-				callback({
-					type = "server",
-					host = config.host or "127.0.0.1",
-					port = config.port or 8086,
-				})
-			end
-
-			dap.configurations.lua = {
-				{
-					type = "nlua",
-					request = "attach",
-					name = "Attach to running Neovim instance",
-				},
-			}
 
 			vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError" })
 			vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticSignError" })

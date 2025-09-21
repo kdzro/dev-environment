@@ -22,9 +22,6 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"pyright",
-				"jdtls",
-				"clangd",
-				"omnisharp",
 				"lua_ls",
 			},
 		})
@@ -34,13 +31,6 @@ return {
 				"debugpy",
 				"isort",
 				"black",
-				"java-debug-adapter",
-				"java-test",
-				"google-java-format",
-				"codelldb",
-				"clang-format",
-				"netcoredbg",
-				"csharpier",
 				"stylua",
 				"prettierd",
 				"prettier",

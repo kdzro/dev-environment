@@ -96,8 +96,6 @@ return {
 		})
 
 		vim.lsp.enable("pyright")
-		vim.lsp.enable("clangd")
-		vim.lsp.enable("omnisharp")
 		vim.lsp.enable("lua_ls")
 
 		vim.lsp.config("pyright", {
@@ -107,35 +105,6 @@ return {
 					autoSearchPaths = true,
 					diagnosticMode = "openFilesOnly",
 					useLibraryCodeForTypes = true,
-				},
-			},
-		})
-
-		vim.lsp.config("clangd", {
-			capabilities = capabilities,
-			settings = {
-				cpp = {
-					offsetEncoding = { "utf-8", "utf-16" },
-					textDocument = {
-						completion = {
-							editsNearCursor = true,
-						},
-					},
-				},
-			},
-		})
-
-		vim.lsp.config("omnisharp", {
-			capabilities = capabilities,
-			settings = {
-				FormattingOptions = {
-					EnableEditorConfigSupport = true,
-				},
-				MsBuild = {},
-				RenameOptions = {},
-				RoslynExtensionsOptions = {},
-				Sdk = {
-					IncludePrereleases = true,
 				},
 			},
 		})
