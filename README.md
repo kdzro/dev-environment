@@ -4,7 +4,7 @@
 
 | nvim                                                                                                            | terminal                                                                                                        |
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| <center><img src = "https://github.com/user-attachments/assets/c2bcab24-838c-430a-bc81-58f420188027"/></center> | <center><img src = "https://github.com/user-attachments/assets/5967e5de-b501-4e17-b2a9-bc10aa40cb4f"/></center> |
+| <center><img src = "https://github.com/user-attachments/assets/795ab427-8699-493a-b17a-a99917ea2f44"/></center> | <center><img src = "https://github.com/user-attachments/assets/ebb0ffb3-74ef-4dde-8132-78507fc55fca"/></center> |
 
 <div align="center">
 
