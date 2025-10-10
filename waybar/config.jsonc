@@ -1,0 +1,97 @@
+{
+  "position": "top",
+  "layer": "top",
+  "modules-left": ["clock", "cpu", "memory", "network"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["tray", "pulseaudio", "pulseaudio#microphone", "custom/spotify", "group/group-power"],
+
+  "clock": {
+    "format": " {:%I:%M %p 󰃭 %d}",
+    "timezone": "America/Fortaleza"
+  },
+  "cpu": {
+    "interval": 10,
+    "format": " {usage}%"
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {percentage}%"
+  },
+  "network": {
+    "format": "󰈀 {bandwidthTotalBytes}",
+    "format-wifi": "󰖩 {essid}",
+    "format-disconnected": "󰖪 {essid}"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "all-outputs": true,
+    "on-click": "activate",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+  "tray": {
+    "spacing": 5
+  },
+  "pulseaudio": {
+    "format": "󰕾 {volume}%",
+    "format-bluetooth": " {volume}%",
+    "format-muted": "󰖁",
+    "on-click": "pavucontrol",
+    "on-scroll-up": "/home/kdzero/.config/waybar/scripts/volume_control.sh up sink",
+    "on-scroll-down": "/home/kdzero/.config/waybar/scripts/volume_control.sh down sink"
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " ",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "/home/kdzero/.config/waybar/scripts/volume_control.sh up source",
+    "on-scroll-down": "/home/kdzero/.config/waybar/scripts/volume_control.sh down source"
+  },
+  "custom/spotify": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": 3,
+    "exec": "/home/kdzero/.config/waybar/scripts/spotify_waybar.py",
+    "exec-if": "pgrep -x spotify",
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-click-middle": "playerctl --player=spotify shuffle Toggle",
+    "on-scroll-up": "playerctl --player=spotify next",
+    "on-scroll-down": "playerctl --player=spotify previous"
+  },
+  "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "custom/power",
+      "custom/quit",
+      "custom/lock",
+      "custom/reboot"
+    ]
+  },
+  "custom/quit": {
+    "format": "󰗼",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit"
+  },
+  "custom/lock": {
+    "format": "󰍁",
+    "tooltip": false,
+    "on-click": "swaylock"
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip": false,
+    "on-click": "reboot"
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "shutdown now"
+  }
+}
