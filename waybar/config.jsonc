@@ -1,0 +1,118 @@
+{
+  "position": "top", 
+  "layer": "top",
+  "modules-left": ["clock", "group/system"],
+  "modules-center": ["group/arch-workspaces"],
+  "modules-right": ["tray", "group/media", "custom/power"],
+
+  "clock": {
+    "format": " {:%I:%M %p 󰃭 %a}",
+    "timezone": "America/Fortaleza",
+    "tooltip": false
+  },
+
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": ["cpu", "temperature", "memory", "network"]
+  },
+  "cpu": {
+    "interval": 10,
+    "format": " {usage}%",
+    "tooltip": false
+  },
+  "temperature": {
+    "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C",
+    "format-critical": " {temperatureC}°C",
+    "tooltip": false
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {percentage}%  {used:0.1f}GB",
+    "tooltip": false
+  },
+  "network": {
+    "interval": 60,
+    "format": "󰾆 {bandwidthTotalBytes}",
+    "format-wifi": "󰖩 {essid}",
+    "format-disconnected": "󰖪 {essid}",
+    "tooltip": false
+  },
+
+  "group/arch-workspaces": {
+    "orientation": "horizontal",
+    "modules": ["custom/arch", "hyprland/workspaces"]
+  },
+  "custom/arch": {
+    "format": "󰣇",
+    "on-click": "rofi -show drun",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+    "tooltip": false
+  },
+
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 8,
+    "tooltip": false
+  },
+
+  "group/media": {
+    "orientation": "horizontal",
+    "modules": ["custom/weather", "pulseaudio", "pulseaudio#microphone", "mpris"]
+  },
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/weather.sh Fortaleza+Brazil",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600
+  },
+  "pulseaudio": {
+    "format": "󰕾 {volume}%",
+    "format-muted": "󰖁",
+    "format-bluetooth": "󰂯 {volume}%",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol --tab 3",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "tooltip": false
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "pavucontrol --tab 4",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ -l 1.0",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+    "tooltip": false
+  },
+  "mpris": {
+    "player": "spotify",
+    "format": "{status_icon} {artist} - {title}",
+    "format-paused": "{status_icon} {artist} - {title}",
+    "format-stopped": "{status_icon} {artist} - {title}",
+    "status-icons": {
+      "playing": "",
+      "paused": "",
+      "stopped": ""
+    },
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous",
+    "tooltip": false
+  },
+  "custom/power": {
+    "format": "",
+    "on-click": "wlogout",
+    "tooltip": false
+  }
+}
