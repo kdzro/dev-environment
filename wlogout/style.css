@@ -1,0 +1,47 @@
+* {
+  font-family: "JetBrains Mono Nerd Font";
+  background-image: none;
+  box-shadow: none;
+}
+
+
+window {
+  background-color: transparent;
+}
+
+
+button {
+  background-color: #1F1F28;
+  border-color: #1F1F28;
+  color: #DCD7BA;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+}
+button:focus, button:active, button:hover {
+  background-color: #957FB8;
+  outline-style: none;
+}
+
+#lock {
+  background-image: url("/home/kdzero/.config/wlogout/icons/lock.png");
+  margin: 0 5px;
+}
+
+#logout {
+  background-image: url("/home/kdzero/.config/wlogout/icons/logout.png");
+  margin: 0 5px;
+}
+
+#shutdown {
+  background-image: url("/home/kdzero/.config/wlogout/icons/shutdown.png");
+  margin: 0 5px;
+}
+
+#reboot {
+  background-image: url("/home/kdzero/.config/wlogout/icons/reboot.png");
+  margin: 0 5px;
+}
