@@ -3,7 +3,7 @@
   "layer": "top",
   "modules-left": ["clock", "group/system"],
   "modules-center": ["group/arch-workspaces"],
-  "modules-right": ["tray", "group/media", "custom/power"],
+  "modules-right": ["tray", "group/media", "custom/swaync", "custom/power"],
 
   "clock": {
     "format": " {:%I:%M %p 󰃭 %a}",
@@ -110,9 +110,31 @@
     "on-scroll-down": "playerctl -p spotify previous",
     "tooltip": false
   },
+
+  "custom/swaync": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
   "custom/power": {
-    "format": "",
-    "on-click": "wlogout",
+    "format": "󰐥",
+    "on-click": "wlogout --buttons-per-row 4",
     "tooltip": false
   }
 }

@@ -125,11 +125,21 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
+#custom-swaync {
+  background-color: #1F1F28;
+  color: #7FB4CA;
+  border-radius: 20px;
+  padding: 2px 12px;
+  margin: 4px 5px;
+  font-weight: bold;
+}
+
 #custom-power {
   background-color: #1F1F28;
   color: #E82424;
   border-radius: 20px;
   padding: 2px 12px;
   margin: 4px 5px;
+  font-size: 16px;
   font-weight: bold;
 }
