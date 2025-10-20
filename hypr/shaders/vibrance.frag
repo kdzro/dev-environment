@@ -1,12 +1,7 @@
 #version 300 es
 
-#ifndef VIBRANCE_INTENSITY
-    #define VIBRANCE_INTENSITY 1.0  // Default fallback value
-#endif
-
-#ifndef SHADER_VIBRANCE_SKIN_TONE_PROTECTION
-    #define SHADER_VIBRANCE_SKIN_TONE_PROTECTION 0.75  // Default fallback value
-#endif
+#define VIBRANCE_INTENSITY 1.0
+#define SHADER_VIBRANCE_SKIN_TONE_PROTECTION 0.75
 
 precision highp float;
 in vec2 v_texcoord;
