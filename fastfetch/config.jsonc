@@ -1,0 +1,97 @@
+{
+  "logo": {
+    "type": "auto",
+    "color": {
+      "1": "#DCD7BA",
+      "2": "#DCD7BA"
+    }
+  },
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+    "break",
+    {
+      "type": "host",
+      "key": "╭─󰇅 ",
+      "keyColor": "#7E9CD8",
+      "valueColor": "#DCD7BA"
+    },
+    {
+      "type": "cpu",
+      "key": "├─ ",
+      "format": "{1}",
+      "keyColor": "#7E9CD8",
+      "valueColor": "#DCD7BA"
+    },
+    {
+      "type": "gpu",
+      "key": "├─ ",
+      "format": "{2}",
+      "keyColor": "#7E9CD8",
+      "valueColor": "#DCD7BA"
+    },
+    {
+      "type": "memory",
+      "key": "├─ ",
+      "keyColor": "#7E9CD8",
+      "format": "{2}",
+      "valueColor": "#DCD7BA"
+    },
+    {
+      "type": "display",
+      "key": "╰─󰍹 ",
+      "keyColor": "#7E9CD8",
+      "compactType": "original",
+      "valueColor": "#DCD7BA"
+    },
+    "break",
+    {
+      "type": "shell",
+      "key": "╭─ ",
+      "keyColor": "#98BB6C",
+      "valueColor": "#DCD7BA"
+    },
+    {
+      "type": "terminal",
+      "key": "├─ ",
+      "keyColor": "#98BB6C",
+      "valueColor": "#DCD7BA"
+    },
+    {
+      "type": "de",
+      "key": "├─ ",
+      "keyColor": "#98BB6C",
+      "valueColor": "#DCD7BA"
+    },
+    {
+      "type": "wm",
+      "key": "╰─ ",
+      "keyColor": "#98BB6C",
+      "valueColor": "#DCD7BA"
+    },
+    "break",
+    {
+      "type": "title",
+      "key": "╭─ ",
+      "format": "{1}@{2}",
+      "keyColor": "#957FB8",
+      "valueColor": "#DCD7BA"
+    },
+    {
+      "type": "os",
+      "key": "├─ ",
+      "keyColor": "#957FB8",
+      "valueColor": "#DCD7BA"
+    },
+    {
+      "type": "kernel",
+      "key": "╰─ ",
+      "format": "{1} {2}",
+      "keyColor": "#957FB8",
+      "valueColor": "#DCD7BA"
+    },
+    "break",
+    "colors"
+  ]
+}
