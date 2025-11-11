@@ -11,6 +11,10 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local keymap = vim.keymap
+
+		local trouble_telescope = pcall(require, "trouble.sources.telescope") and require("trouble.sources.telescope")
+			or nil
 
 		telescope.setup({
 			defaults = {
@@ -20,14 +24,13 @@ return {
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-j>"] = actions.move_selection_next,
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						["<C-t>"] = trouble_telescope and trouble_telescope.open or nil,
 					},
 				},
 			},
 		})
 
 		telescope.load_extension("fzf")
-
-		local keymap = vim.keymap
 
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Telescope: Fuzzy find files" })
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Telescope: Fuzzy find recent files" })

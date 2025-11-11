@@ -11,8 +11,11 @@ return {
 			ensure_installed = {
 				"python",
 				"lua",
+				"html",
+				"css",
 				"json",
 				"markdown",
+				"markdown_inline",
 				"bash",
 				"dockerfile",
 				"gitignore",

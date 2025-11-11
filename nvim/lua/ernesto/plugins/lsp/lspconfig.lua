@@ -1,16 +1,9 @@
 return {
-	"neovim/nvim-lspconfig",
+	"hrsh7th/cmp-nvim-lsp",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{
-			"folke/lazydev.nvim",
-			opts = {
-				library = {
-					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-				},
-			},
-		},
+		{ "antosha417/nvim-lsp-file-operations", config = true },
+		{ "folke/lazydev.nvim", opts = {} },
 		{
 			"SmiteshP/nvim-navbuddy",
 			dependencies = {
@@ -32,20 +25,8 @@ return {
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		vim.diagnostic.config({
-			virtual_text = {
-				source = true,
-				prefix = " ●",
-			},
-			severity_sort = true,
-			signs = {
-				text = {
-					[vim.diagnostic.severity.ERROR] = " ",
-					[vim.diagnostic.severity.WARN] = " ",
-					[vim.diagnostic.severity.HINT] = " ",
-					[vim.diagnostic.severity.INFO] = " ",
-				},
-			},
+		vim.lsp.config("*", {
+			capabilities = capabilities,
 		})
 
 		local keymap = vim.keymap
@@ -60,8 +41,8 @@ return {
 				opts.desc = "LSP: Go to declaration"
 				keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
-				opts.desc = "LSP: Show LSP definitions"
-				keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+				opts.desc = "LSP: Show LSP definition"
+				keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 
 				opts.desc = "LSP: Show LSP implementations"
 				keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
@@ -69,25 +50,29 @@ return {
 				opts.desc = "LSP: Show LSP type definitions"
 				keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
-				opts.desc = "LSP: Code actions"
+				opts.desc = "LSP: See available code actions"
 				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
-				opts.desc = "LSP: Rename"
+				opts.desc = "LSP: Smart rename"
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-				opts.desc = "LSP: Buffer diagnostics"
+				opts.desc = "LSP: Show buffer diagnostics"
 				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
-				opts.desc = "LSP: Line diagnostics"
+				opts.desc = "LSP: Show line diagnostics"
 				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 
-				opts.desc = "LSP: Previous diagnostic"
-				keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+				opts.desc = "LSP: Go to previous diagnostic"
+				keymap.set("n", "[d", function()
+					vim.diagnostic.jump({ count = -1, float = true })
+				end, opts)
 
-				opts.desc = "LSP: Next diagnostic"
-				keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+				opts.desc = "LSP: Go to next diagnostic"
+				keymap.set("n", "]d", function()
+					vim.diagnostic.jump({ count = 1, float = true })
+				end, opts)
 
-				opts.desc = "LSP: Hover"
+				opts.desc = "LSP: Show documentation for what is under cursor"
 				keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
 				opts.desc = "LSP: Restart LSP"
@@ -95,51 +80,20 @@ return {
 			end,
 		})
 
-		vim.lsp.enable("pyright")
-		vim.lsp.enable("lua_ls")
+		local severity = vim.diagnostic.severity
 
-		vim.lsp.config("pyright", {
-			capabilities = capabilities,
-			settings = {
-				python = {
-					autoSearchPaths = true,
-					diagnosticMode = "openFilesOnly",
-					useLibraryCodeForTypes = true,
-				},
+		vim.diagnostic.config({
+			virtual_text = {
+				source = true,
+				prefix = " ●",
 			},
-		})
-
-		vim.lsp.config("lua_ls", {
-			on_init = function(client)
-				if client.workspace_folders then
-					local path = client.workspace_folders[1].name
-					if
-						path ~= vim.fn.stdpath("config")
-						and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
-					then
-						return
-					end
-				end
-
-				client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-					runtime = {
-						version = "LuaJIT",
-						path = {
-							"lua/?.lua",
-							"lua/?/init.lua",
-						},
-					},
-					workspace = {
-						checkThirdParty = false,
-						library = {
-							vim.env.VIMRUNTIME,
-							"${3rd}/luv/library",
-						},
-					},
-				})
-			end,
-			settings = {
-				Lua = {},
+			signs = {
+				text = {
+					[severity.ERROR] = " ",
+					[severity.WARN] = " ",
+					[severity.HINT] = "󰠠 ",
+					[severity.INFO] = " ",
+				},
 			},
 		})
 	end,

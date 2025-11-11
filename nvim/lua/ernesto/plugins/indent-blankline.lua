@@ -26,6 +26,6 @@ return {
 	config = function(_, opts)
 		require("ibl").setup(opts)
 
-		vim.api.nvim_set_hl(0, "IblScope", { bg = "#504945" })
+		vim.api.nvim_set_hl(0, "IblScope", { bg = "#54546D" })
 	end,
 }
