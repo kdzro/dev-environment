@@ -21,6 +21,7 @@ return {
 				"gitignore",
 				"toml",
 				"yaml",
+				"bash",
 			},
 			incremental_selection = {
 				enable = true,

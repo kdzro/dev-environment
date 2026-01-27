@@ -10,6 +10,9 @@ return {
 				lua = { "stylua" },
 				json = { "prettierd", "prettier" },
 				markdown = { "prettierd", "prettier" },
+				html = { "prettierd", "prettier" },
+				css = { "prettierd", "prettier" },
+				bash = { "shfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

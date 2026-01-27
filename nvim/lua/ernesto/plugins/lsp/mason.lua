@@ -4,6 +4,8 @@ return {
 		opts = {
 			ensure_installed = {
 				"html",
+				"cssls",
+				"bashls",
 				"lua_ls",
 				"pyright",
 			},
@@ -32,6 +34,7 @@ return {
 				"isort",
 				"black",
 				"stylua",
+				"shfmt",
 				"prettier",
 				"prettierd",
 			},

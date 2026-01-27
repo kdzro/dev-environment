@@ -13,7 +13,7 @@
 
   "group/system": {
     "orientation": "horizontal",
-    "modules": ["cpu", "temperature", "memory", "network"]
+    "modules": ["cpu", "temperature", "memory", "battery"]
   },
   "cpu": {
     "interval": 10,
@@ -21,10 +21,12 @@
     "tooltip": false
   },
   "temperature": {
-    "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
-    "critical-threshold": 80,
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+    "warning-threshold": 80,
+    "critical-threshold": 95,
     "format": " {temperatureC}°C",
-    "format-critical": " {temperatureC}°C",
+    "format-warning": " {temperatureC}°C",
+    "format-critical": " {temperatureC}°C",
     "tooltip": false
   },
   "memory": {
@@ -32,11 +34,14 @@
     "format": " {percentage}%  {used:0.1f}GB",
     "tooltip": false
   },
-  "network": {
+  "battery": {
     "interval": 60,
-    "format": "󰾆 {bandwidthTotalBytes}",
-    "format-wifi": "󰖩 {essid}",
-    "format-disconnected": "󰖪 {essid}",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
     "tooltip": false
   },
 
@@ -73,7 +78,7 @@
     "exec": "~/.config/waybar/scripts/weather.sh Fortaleza+Brazil",
     "return-type": "json",
     "format": "{}",
-    "tooltip": true,
+    "tooltip": false,
     "interval": 3600
   },
   "pulseaudio": {

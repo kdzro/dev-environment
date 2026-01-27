@@ -34,6 +34,10 @@ window#waybar {
   margin: 0 5px
 }
 
+#temperature.warning {
+  color: #E6C384;
+}
+
 #temperature.critical {
   color: #E82424;
 }
@@ -43,9 +47,17 @@ window#waybar {
   margin: 0 5px
 }
 
-#network {
+#battery {
   color: #7FB4CA;
   margin-left: 5px;
+}
+
+#battery.warning {
+  color: #E6C384;
+}
+
+#battery.critical {
+  color: #E82424;
 }
 
 #arch-workspaces {
