@@ -8,8 +8,8 @@ window#waybar {
 }
 
 #clock {
-  background-color: #1F1F28;
-  color: #FFA066;
+  background-color: #1f1f28;
+  color: #ffa066;
   border-radius: 20px;
   padding: 2px 12px;
   margin: 4px 5px;
@@ -17,7 +17,7 @@ window#waybar {
 }
 
 #system {
-  background-color: #1F1F28;
+  background-color: #1f1f28;
   border-radius: 20px;
   padding: 2px 12px;
   margin: 4px 0;
@@ -25,43 +25,43 @@ window#waybar {
 }
 
 #cpu {
-  color: #D27E99;
+  color: #d27e99;
   margin-right: 5px;
 }
 
 #temperature {
-  color: #957FB8;
-  margin: 0 5px
+  color: #957fb8;
+  margin: 0 5px;
 }
 
 #temperature.warning {
-  color: #E6C384;
+  color: #e6c384;
 }
 
 #temperature.critical {
-  color: #E82424;
+  color: #e82424;
 }
 
 #memory {
-  color: #98BB6C;
-  margin: 0 5px
+  color: #98bb6c;
+  margin: 0 5px;
 }
 
 #battery {
-  color: #7FB4CA;
+  color: #7fb4ca;
   margin-left: 5px;
 }
 
 #battery.warning {
-  color: #E6C384;
+  color: #e6c384;
 }
 
 #battery.critical {
-  color: #E82424;
+  color: #e82424;
 }
 
 #arch-workspaces {
-  background-color: #1F1F28;
+  background-color: #1f1f28;
   border-radius: 20px;
   padding: 2px 12px;
   margin: 4px 0;
@@ -69,14 +69,14 @@ window#waybar {
 }
 
 #custom-arch {
-  color: #54546D;
+  color: #54546d;
   font-size: 18px;
   margin-right: 6px;
   margin-left: 5px;
 }
 
 #custom-arch:hover {
-  color: #2A2A37;
+  color: #2a2a37;
 }
 
 #workspaces button {
@@ -85,28 +85,28 @@ window#waybar {
   text-shadow: none;
   border: none;
   outline: none;
-  color: #DCD7BA;
+  color: #dcd7ba;
 }
 
 #workspaces button:hover {
   transition-property: color;
   transition-duration: 0.5s;
-  color: #54546D;
+  color: #54546d;
 }
 
 #workspaces button.active {
-  color: #54546D;
+  color: #54546d;
 }
 
 #tray {
-  background-color: #1F1F28;
+  background-color: #1f1f28;
   border-radius: 20px;
   padding: 2px 12px;
   margin: 4px 5px;
 }
 
 #media {
-  background-color: #1F1F28;
+  background-color: #1f1f28;
   border-radius: 20px;
   padding: 2px 12px;
   margin: 4px 0;
@@ -114,32 +114,32 @@ window#waybar {
 }
 
 #custom-weather {
-  color: #E6C384;
+  color: #e6c384;
   margin-right: 7px;
 }
 
 #pulseaudio {
-  color: #957FB8;
+  color: #957fb8;
   margin: 0 7px;
 }
 
 #mpris {
-  color: #2B3328;
+  color: #2b3328;
   margin-left: 5px;
   transition-property: color;
   transition-duration: 0.5s;
 }
 
 #mpris.playing {
-  color: #98BB6C;
+  color: #98bb6c;
   border-radius: 20px;
   transition-property: color;
   transition-duration: 0.5s;
 }
 
 #custom-swaync {
-  background-color: #1F1F28;
-  color: #7FB4CA;
+  background-color: #1f1f28;
+  color: #7fb4ca;
   border-radius: 20px;
   padding: 2px 12px;
   margin: 4px 5px;
@@ -147,8 +147,8 @@ window#waybar {
 }
 
 #custom-power {
-  background-color: #1F1F28;
-  color: #E82424;
+  background-color: #1f1f28;
+  color: #e82424;
   border-radius: 20px;
   padding: 2px 12px;
   margin: 4px 5px;

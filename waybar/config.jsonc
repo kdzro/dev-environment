@@ -21,7 +21,7 @@
     "tooltip": false
   },
   "temperature": {
-    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input",
     "warning-threshold": 80,
     "critical-threshold": 95,
     "format": " {temperatureC}°C",
