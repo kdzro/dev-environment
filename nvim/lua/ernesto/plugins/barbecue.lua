@@ -7,4 +7,9 @@ return {
 	name = "barbecue",
 	version = "*",
 	opts = {},
+	config = function()
+		require("barbecue").setup({
+			theme = "tokyonight",
+		})
+	end,
 }

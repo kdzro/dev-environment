@@ -1,46 +1,46 @@
 return {
-	"rebelot/kanagawa.nvim",
+	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
 	opts = {},
 	config = function()
-		require("kanagawa").setup({
-			theme = "wave",
-			colors = {
-				theme = {
-					all = {
-						ui = {
-							bg_gutter = "none",
-						},
-					},
-				},
-			},
-			overrides = function(colors)
-				local theme = colors.theme
-				return {
-					TelescopeTitle = { fg = theme.ui.special, bold = true },
-					TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-					TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-					TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-					TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-					TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-					TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-
-					NormalFloat = { bg = "none" },
-					FloatBorder = { bg = "none" },
-					FloatTitle = { bg = "none" },
-					NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-					LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-					MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-
-					Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
-					PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-					PmenuSbar = { bg = theme.ui.bg_m1 },
-					PmenuThumb = { bg = theme.ui.bg_p2 },
+		require("tokyonight").setup({
+			style = "moon",
+			on_highlights = function(hl, c)
+				local prompt = "#2d3149"
+				hl.TelescopeNormal = {
+					bg = c.bg_dark,
+					fg = c.fg_dark,
+				}
+				hl.TelescopeBorder = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+				hl.TelescopePromptNormal = {
+					bg = prompt,
+				}
+				hl.TelescopePromptBorder = {
+					bg = prompt,
+					fg = prompt,
+				}
+				hl.TelescopePromptTitle = {
+					bg = prompt,
+					fg = prompt,
+				}
+				hl.TelescopePreviewTitle = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+				hl.TelescopeResultsTitle = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
 				}
 			end,
+			on_colors = function(colors)
+				colors.hint = colors.orange
+				colors.error = "#ff0000"
+			end,
 		})
-
-		vim.cmd([[colorscheme kanagawa]])
+		vim.cmd([[colorscheme tokyonight]])
 	end,
 }
