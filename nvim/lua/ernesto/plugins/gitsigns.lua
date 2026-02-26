@@ -24,8 +24,6 @@ return {
 			map("n", "<leader>hS", gs.stage_buffer, "Gitsigns: Stage buffer")
 			map("n", "<leader>hR", gs.reset_buffer, "Gitsigns: Reset buffer")
 
-			map("n", "<leader>hu", gs.undo_stage_hunk, "Gitsigns: Undo stage hunk")
-
 			map("n", "<leader>hp", gs.preview_hunk, "Gitsigns: Preview hunk")
 
 			map("n", "<leader>hb", function()

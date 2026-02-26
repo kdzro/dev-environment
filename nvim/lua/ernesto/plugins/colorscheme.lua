@@ -1,46 +1,25 @@
 return {
-	"folke/tokyonight.nvim",
-	lazy = false,
-	priority = 1000,
-	opts = {},
+	"rose-pine/neovim",
+	name = "rose-pine",
 	config = function()
-		require("tokyonight").setup({
-			style = "moon",
-			on_highlights = function(hl, c)
-				local prompt = "#2d3149"
-				hl.TelescopeNormal = {
-					bg = c.bg_dark,
-					fg = c.fg_dark,
-				}
-				hl.TelescopeBorder = {
-					bg = c.bg_dark,
-					fg = c.bg_dark,
-				}
-				hl.TelescopePromptNormal = {
-					bg = prompt,
-				}
-				hl.TelescopePromptBorder = {
-					bg = prompt,
-					fg = prompt,
-				}
-				hl.TelescopePromptTitle = {
-					bg = prompt,
-					fg = prompt,
-				}
-				hl.TelescopePreviewTitle = {
-					bg = c.bg_dark,
-					fg = c.bg_dark,
-				}
-				hl.TelescopeResultsTitle = {
-					bg = c.bg_dark,
-					fg = c.bg_dark,
-				}
-			end,
-			on_colors = function(colors)
-				colors.hint = colors.orange
-				colors.error = "#ff0000"
-			end,
+		require("rose-pine").setup({
+			variant = "main",
+			highlight_groups = {
+				TelescopeBorder = { fg = "overlay", bg = "overlay" },
+				TelescopeNormal = { fg = "subtle", bg = "overlay" },
+				TelescopeSelection = { fg = "text", bg = "highlight_med" },
+				TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
+				TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
+
+				TelescopeTitle = { fg = "base", bg = "love" },
+				TelescopePromptTitle = { fg = "base", bg = "pine" },
+				TelescopePreviewTitle = { fg = "base", bg = "iris" },
+
+				TelescopePromptNormal = { fg = "text", bg = "surface" },
+				TelescopePromptBorder = { fg = "surface", bg = "surface" },
+			},
 		})
-		vim.cmd([[colorscheme tokyonight]])
+
+		vim.cmd([[colorscheme rose-pine]])
 	end,
 }

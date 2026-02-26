@@ -3,35 +3,39 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	build = ":TSUpdate",
 	config = function()
-		local treesitter = require("nvim-treesitter")
+		require("nvim-treesitter").install({
+			"python",
+			"lua",
+			"html",
+			"css",
+			"json",
+			"markdown",
+			"markdown_inline",
+			"dockerfile",
+			"gitignore",
+			"toml",
+			"yaml",
+			"bash",
+		})
 
-		treesitter.setup({
-			highlight = { enable = true },
-			indent = { enable = true },
-			ensure_installed = {
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = {
 				"python",
 				"lua",
 				"html",
 				"css",
 				"json",
 				"markdown",
-				"markdown_inline",
-				"bash",
 				"dockerfile",
-				"gitignore",
 				"toml",
 				"yaml",
 				"bash",
+				"zsh",
 			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<C-space>",
-					node_incremental = "<C-space>",
-					scope_incremental = false,
-					node_decremental = "<bs>",
-				},
-			},
+			callback = function()
+				vim.treesitter.start()
+				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
 		})
 
 		vim.treesitter.language.register("bash", "zsh")

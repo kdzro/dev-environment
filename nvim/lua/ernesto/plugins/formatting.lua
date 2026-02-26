@@ -15,14 +15,14 @@ return {
 				bash = { "shfmt" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
+				lsp_format = "fallback",
 				async = false,
 				timeout_ms = 3000,
 			},
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-			conform.format({ lsp_fallback = true, async = false, timeout_ms = 3000 })
+			conform.format({ lsp_format = "fallback", async = false, timeout_ms = 3000 })
 		end, { desc = "Conform: Format file or range" })
 	end,
 }

@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 vim.g.netrw_liststyle = 3
 
 local opt = vim.opt

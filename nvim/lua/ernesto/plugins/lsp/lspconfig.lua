@@ -16,7 +16,7 @@ return {
 				},
 			},
 			keys = {
-				vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { desc = "NavBuddy: Toggle NavBuddy" }),
+				{ "<leader>nb", "<cmd>Navbuddy<CR>", desc = "NavBuddy: Toggle NavBuddy" },
 			},
 		},
 	},
@@ -89,10 +89,10 @@ return {
 			},
 			signs = {
 				text = {
-					[severity.ERROR] = " ",
-					[severity.WARN] = " ",
+					[severity.ERROR] = " ",
+					[severity.WARN] = " ",
 					[severity.HINT] = "󰠠 ",
-					[severity.INFO] = " ",
+					[severity.INFO] = " ",
 				},
 			},
 		})

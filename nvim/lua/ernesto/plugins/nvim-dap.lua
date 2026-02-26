@@ -2,7 +2,7 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
-			"williamboman/mason.nvim",
+			"mason-org/mason.nvim",
 			"nvim-neotest/nvim-nio",
 			"rcarriga/nvim-dap-ui",
 			"mfussenegger/nvim-dap-python",
@@ -52,9 +52,6 @@ return {
 			map("<leader>dO", dap.step_out, "DAP: Step Out")
 			map("<leader>dq", dap.terminate, "DAP: Terminate")
 			map("<leader>du", dapui.toggle, "DAP: Toggle UI")
-			map("<leader>dl", function()
-				require("osv").launch({ port = 8086 })
-			end, "DAP: Start Lua debug server")
 		end,
 	},
 }

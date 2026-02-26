@@ -4,42 +4,38 @@ return {
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status")
-		local devicons = require("nvim-web-devicons")
-
-		local function os_arch()
-			local icon_info = devicons.get_icon("arch")
-			return icon_info or "󰣇 "
-		end
 
 		lualine.setup({
 			options = {
-				theme = "tokyonight",
+				theme = "rose-pine",
 			},
 			sections = {
 				lualine_a = {
-					{ "mode" },
+					{ "mode", icon = { "", align = "left" }, separator = { left = "", right = "" } },
 				},
 				lualine_b = {
 					{ "branch" },
-					{ "diagnostics" },
-					{ "diff" },
+					{
+						"diff",
+						symbols = { added = " ", modified = " ", removed = " " },
+						separator = { right = "" },
+					},
 				},
-				lualine_c = {},
+				lualine_c = {
+					{ "diagnostics" },
+				},
 				lualine_x = {
 					{
 						lazy_status.updates,
 						cond = lazy_status.has_updates,
-						color = { fg = "#ffa066" },
+						color = { fg = "#ebbcba" },
 					},
-					{ "encoding" },
-					{ os_arch },
 					{ "filetype" },
 				},
 				lualine_y = {
-					{ "tabs" },
+					{ "progress" },
 				},
 				lualine_z = {
-					{ "progress" },
 					{ "location" },
 				},
 			},
