@@ -9,8 +9,12 @@ return {
 				vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
 			end
 
-			map("n", "]h", gs.next_hunk, "Gitsigns: Next Hunk")
-			map("n", "[h", gs.prev_hunk, "Gitsigns: Prev Hunk")
+			map("n", "]h", function()
+				gs.nav_hunk("next")
+			end, "Gitsigns: Next Hunk")
+			map("n", "[h", function()
+				gs.nav_hunk("prev")
+			end, "Gitsigns: Prev Hunk")
 
 			map("n", "<leader>hs", gs.stage_hunk, "Gitsigns: Stage hunk")
 			map("n", "<leader>hr", gs.reset_hunk, "Gitsigns: Reset hunk")
